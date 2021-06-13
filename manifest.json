@@ -1,8 +1,11 @@
 {
   "name": "NH Chime",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Sample Chrome Extension",
+  "description": "Extension to notify the end of the video lesson of N High School",
+  "icons": {
+    "240": "icon.png"
+  },
   "permissions": [
     "alarms",
     "notifications",
