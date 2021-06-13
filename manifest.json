@@ -14,7 +14,7 @@
   ],
   "content_scripts": [{
     "matches": ["https://www.nnn.ed.nico/courses/*/chapters/*"],
-    "js": ["src/chime.js"]
+    "js": ["src/content.js"]
   }],
   "background" : {
     "scripts" : ["src/background.js"],
