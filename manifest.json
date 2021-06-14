@@ -1,7 +1,7 @@
 {
   "name": "NH Chime",
   "version": "0.0.1",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Extension to notify the end of the video lesson of N High School",
   "icons": {
     "240": "icon.png"
@@ -9,15 +9,15 @@
   "permissions": [
     "alarms",
     "notifications",
-    "tabs",
-    "https://www.nnn.ed.nico/courses/*/chapters/*"
+    "storage",
+    "tabs"
   ],
+  "host_permissions": ["https://www.nnn.ed.nico/courses/*/chapters/*"],
   "content_scripts": [{
     "matches": ["https://www.nnn.ed.nico/courses/*/chapters/*"],
-    "js": ["src/content.js"]
+    "js": ["js/content.js"]
   }],
   "background" : {
-    "scripts" : ["src/background.js"],
-    "persistent": false
+    "service_worker" : "background.js"
   }
 }
