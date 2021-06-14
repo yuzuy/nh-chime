@@ -20,5 +20,5 @@ movies.forEach(movie => {
       title: title,
       when: Date.now() + (m * 60 + s) * 1000,
     });
-  })
+  });
 })
