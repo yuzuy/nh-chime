@@ -1,14 +1,12 @@
 chrome.runtime.onMessage.addListener(data => {
   switch (data.type) {
     case 'set':
-      let tabId;
       chrome.tabs.query({active: true, currentWindow: true})
         .then(tabs => {
           const curTab = tabs[0];
-          if (curTab) tabId = curTab.id;
           const alarmV = {
             title: data.title,
-            tabId: tabId,
+            tabId: curTab.id,
           };
           chrome.alarms.create(JSON.stringify(alarmV), {when: data.when});
         });
