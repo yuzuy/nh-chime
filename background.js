@@ -25,7 +25,8 @@ chrome.alarms.onAlarm.addListener(alarm => {
       type: 'basic',
       title: '🔔',
       message: alarmV.title,
-      iconUrl: 'icon.png'
+      iconUrl: 'icon.png',
+      requireInteraction: true,
     },
     notificationId => {
       const notificationIdToTabId = {};
@@ -35,7 +36,7 @@ chrome.alarms.onAlarm.addListener(alarm => {
   );
 });
 
-chrome.notifications.onClicked.addListener(notificationId => {
+chrome.notifications.onClosed.addListener(notificationId => {
   chrome.storage.local.get(notificationId, notificationIdToTabId => {
     const tabId = notificationIdToTabId[notificationId];
     chrome.tabs.get(tabId)
